@@ -30,7 +30,7 @@ const hphealth = () => {
 }
 
 class enemy {
-    constructor(){
+    constructor(name){
         this.name = name,
         this.hull = Math.floor(Math.random()*4)+3;         
         this.firepower = Math.floor(Math.random()*3)+2;
@@ -50,7 +50,7 @@ let shipfight = (enemy) => {
     if (Math.random() <= ship.accuracy){
         enemy.hull -= ship.fp;
         alert("DIRECT HIT !! ");
-        alert("Ship health: " + ship.hp + "and Enemy health: " + enemyShip.hull)
+        alert("Ship health: " + ship.hp + "and " + enemyShip.name + " health: " + enemyShip.hull)
     }else{
         alert("OH NO! YOU MISSED!!");
     }
@@ -66,18 +66,44 @@ let enemyFight = (ship) => {
 }
 
 //==========================BATTLE CODING ========================================//
-let p = prompt(" are you ready to battle?? ")
+let p = prompt("Are you ready to battle?? (yes or no) ")
 
 if (p === "yes")
 {
-    alert( " wave one... ")
+    // alert( " wave " + (index + 1) + "...")
     let a = prompt("first alien ship vazes in... do you attack or run? ")
     if (a === "attack"){
+        alert( " wave " + (index + 1) + "...")
         while (ship.hp > 0 && enemyShip.hull > 0 ){
-            alert("Ship health : " + ship.hp + " and Enemy health: " + enemyShip.hull)
+            alert("Ship health : " + ship.hp + " and " + enemyShip.name +  " health: " + enemyShip.hull)
             alert( "ATTACK !!!")
-            shipfight(enemyShip);
-            enemyFight(ship);
+            if(ship.hp > 0 ){
+                shipfight(enemyShip);
+            }
+            if(enemyShip.hull > 0){
+                enemyFight(ship);
+
+            }else if(ship.hp <= 0){
+                alert("Game Over...")
+            }else if(enemyShip.hull <= 0){
+                alert("you have defeted the alien")
+                let Q = prompt( " do you want to keep playing? ")
+                if (Q === "yes"){
+                index++;
+                enemyShip = alienship[index];
+                    if(index === 5){
+                        "Victory! You defeated the aliens!"
+                    }
+                }else{
+                    alert(" game over ");
+                }
+
+            }
+
+            }
+        
+            
+
         }
 
     }
@@ -88,9 +114,11 @@ if (p === "yes"){
      alert("you are not fit yo defend the human race")
 
 }else{
-     alert("Does..not...compute")
+     alert("Does...not...compute")
 }
-}
+
+
+
 
 // if (p === "yes")
 // {
