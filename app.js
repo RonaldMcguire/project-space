@@ -50,7 +50,7 @@ let shipfight = (enemy) => {
     if (Math.random() <= ship.accuracy){
         enemy.hull -= ship.fp;
         alert("DIRECT HIT !! ");
-        alert("Shipt health: " + ship.hp + "and Enemy health: " + enemyShip.hull)
+        alert("Ship health: " + ship.hp + "and Enemy health: " + enemyShip.hull)
     }else{
         alert("OH NO! YOU MISSED!!");
     }
@@ -65,3 +65,67 @@ let enemyFight = (ship) => {
     }
 }
 
+//==========================BATTLE CODING ========================================//
+let p = prompt(" are you ready to battle?? ")
+
+if (p === "yes")
+{
+    alert( " wave one... ")
+    let a = prompt("first alien ship vazes in... do you attack or run? ")
+    if (a === "attack"){
+        while (ship.hp > 0 && enemyShip.hull > 0 ){
+            alert("Ship health : " + ship.hp + " and Enemy health: " + enemyShip.hull)
+            alert( "ATTACK !!!")
+            shipfight(enemyShip);
+            enemyFight(ship);
+        }
+
+    }
+
+if (p === "yes"){
+
+ }else if(p === "no"){
+     alert("you are not fit yo defend the human race")
+
+}else{
+     alert("Does..not...compute")
+}
+}
+
+// if (p === "yes")
+// {
+// alert( " wave one... ")
+// let a = prompt("first alien ship vazes in... do you attack or run? ")
+// if (a === "attack"){
+//     while (ship.hp > 0 || this.hull > 0 ){
+//         alert("battle phase");
+//         if (math.random() <= ship.accuracy){
+            
+//             alert("you hit enemy ship for 5 hp");
+//         }else{
+//             alert("miss");
+//         }
+
+//     }
+
+
+// }else if (a === "run"){
+//     alert(" you have failed the human race... ")
+// }   
+
+// }else if(p === "no"){
+//     alert("you are not fit yo defend the human race")
+
+// }
+// else{
+//     alert("Does..not...compute")
+// }
+
+
+
+
+
+// // let attack = (shiphull,enemyfp) =>{
+
+// //     ship.hull = shiphull-enemyfp
+// //}
