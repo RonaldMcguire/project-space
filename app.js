@@ -24,7 +24,10 @@ let ship = {
     hp:20,
     fp: 5,
     accuracy: .7
-};
+} 
+const hphealth = () => {
+    alert("this is health" + hp)
+}
 
 class enemy {
     constructor(){
@@ -35,39 +38,30 @@ class enemy {
     }
 }
 
-let p = prompt(" are you ready to battle?? ")
-
-if (p === "yes")
-{
-alert( " wave one... ")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}else if(p === "no"){
-    alert("you are not fit yo defend the human race")
-
+let alienship = [];
+for(let i = 0; i < 6; i++){
+    alienship.push(new enemy ('Oogie Boogie ' + (i + 1)))
 }
-else{
-    alert("Does..not...compute")
+let index = 0;
+let enemyShip = alienship[index]
+
+// ==================== ACTION OF GAME ============================ //
+let shipfight = (enemy) => {
+    if (Math.random() <= ship.accuracy){
+        enemy.hull -= ship.fp;
+        alert("DIRECT HIT !! ");
+        alert("Shipt health: " + ship.hp + "and Enemy health: " + enemyShip.hull)
+    }else{
+        alert("OH NO! YOU MISSED!!");
+    }
 }
 
-
-
-
-
-// let attack = (shiphull,enemyfp) =>{
-
-//     ship.hull = shiphull-enemyfp
-// };
+let enemyFight = (ship) => {
+    if (Math.random() <= this.accuracy) {
+        ship.hp -= enemy.firepower;
+        alert("uh oh... DIRECT HIT !! ");
+    }else{
+        alert("YAY! THEY MISSED!!");
+    }
+}
 
