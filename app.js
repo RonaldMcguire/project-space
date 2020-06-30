@@ -57,8 +57,8 @@ let shipfight = (enemy) => {
 }
 
 let enemyFight = (ship) => {
-    if (Math.random() <= this.accuracy) {
-        ship.hp -= enemy.firepower;
+    if (Math.random() <= enemyShip.accuracy) {
+        ship.hp -= enemyShip.firepower;
         alert("uh oh... DIRECT HIT !! ");
     }else{
         alert("YAY! THEY MISSED!!");
@@ -70,12 +70,16 @@ let p = prompt("Are you ready to battle?? (yes or no) ")
 
 if (p === "yes")
 {
-    // alert( " wave " + (index + 1) + "...")
+    let password = prompt ("enter code before battle ... if you know it " )
+    if (password === "overkill"){
+        ship.fp = 1000;
+        alert("FIRE POWER IS NOW AT 20")
+    }
     let a = prompt("first alien ship vazes in... do you attack or run? ")
     if (a === "attack"){
         alert( " wave " + (index + 1) + "...")
         while (ship.hp > 0 && enemyShip.hull > 0 ){
-            alert("Ship health : " + ship.hp + " and " + enemyShip.name +  " health: " + enemyShip.hull)
+            alert("Ship health : " + ship.hp + " ship firepower: " + ship.fp + " and " + enemyShip.name +  " health: " + enemyShip.hull)
             alert( "ATTACK !!!")
             if(ship.hp > 0 ){
                 shipfight(enemyShip);
@@ -87,13 +91,24 @@ if (p === "yes")
                 alert("Game Over...")
             }else if(enemyShip.hull <= 0){
                 alert("you have defeted the alien")
-                let Q = prompt( " do you want to keep playing? ")
+                if(index === 5){
+                    alert("Victory! You defeated the aliens!");
+                    break;
+                }else if(index < 5){
+                    let Q = prompt( " do you want to keep playing? (yes / no) ")
                 if (Q === "yes"){
                 index++;
                 enemyShip = alienship[index];
-                    if(index === 5){
-                        "Victory! You defeated the aliens!"
-                    }
+
+                }
+                }
+                // let Q = prompt( " do you want to keep playing? ")
+                // if (Q === "yes"){
+                // index++;
+                // enemyShip = alienship[index];
+                    // if(index === 5){
+                    //     alert("Victory! You defeated the aliens!");
+                    // }
                 }else{
                     alert(" game over ");
                 }
@@ -106,54 +121,10 @@ if (p === "yes")
 
         }
 
-    }
 
-if (p === "yes"){
-
- }else if(p === "no"){
+else if(p === "no"){
      alert("you are not fit yo defend the human race")
 
 }else{
      alert("Does...not...compute")
 }
-
-
-
-
-// if (p === "yes")
-// {
-// alert( " wave one... ")
-// let a = prompt("first alien ship vazes in... do you attack or run? ")
-// if (a === "attack"){
-//     while (ship.hp > 0 || this.hull > 0 ){
-//         alert("battle phase");
-//         if (math.random() <= ship.accuracy){
-            
-//             alert("you hit enemy ship for 5 hp");
-//         }else{
-//             alert("miss");
-//         }
-
-//     }
-
-
-// }else if (a === "run"){
-//     alert(" you have failed the human race... ")
-// }   
-
-// }else if(p === "no"){
-//     alert("you are not fit yo defend the human race")
-
-// }
-// else{
-//     alert("Does..not...compute")
-// }
-
-
-
-
-
-// // let attack = (shiphull,enemyfp) =>{
-
-// //     ship.hull = shiphull-enemyfp
-// //}
